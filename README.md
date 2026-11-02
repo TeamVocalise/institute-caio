@@ -7,3 +7,4 @@ Astro + TypeScript + Tailwind CSS 4. See AGENTS.md for project rules and docs/ f
     npm run build    # static output in dist/
 
 The older static draft is in site/ (open site/serve.command). It is kept for reference only.
+# institute-caio
