@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import MemberCard from '../components/council/MemberCard.astro';
+import { getMembersBySurname } from '../lib/members';
+import { site } from '../lib/site';
+const members = await getMembersBySurname();
+---
+<BaseLayout title={`Founding Council members | ${site.shortName}`} description={`Members of the ${site.shortName} Founding Council.`} current="/founding-council/"
+  sampleNotice="The Founding Council has not been appointed. Every name, role, organisation and statement on this page is fictional placeholder content.">
+  <PageHero eyebrow="Founding Council" title="The Founding Council."
+    lede="Senior practitioners from across Australian business, government and higher education, helping define the emerging profession of enterprise AI leadership. Members take part in a personal capacity." />
+  <section class="section"><div class="container">
+    <div class="members">{members.map((m) => <MemberCard member={m} />)}</div>
+    <div class="callout" style="margin-top:56px"><p>The Founding Council is distinct from the legal Board. Council members do not represent their employers unless explicitly approved.</p></div>
+  </div></section>
+</BaseLayout>

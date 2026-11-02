@@ -1,0 +1,22 @@
+---
+import Placeholder from '../ui/Placeholder.astro';
+import { site } from '../../lib/site';
+---
+<!-- Prototype: validates but never sends. Connect to the approved backend before launch. -->
+<form class="form" id="general-form" data-prototype novalidate>
+  <fieldset>
+    <legend>Your details</legend>
+    <div class="two">
+      <div class="field"><label for="gn">Full name</label><input id="gn" name="name" autocomplete="name" required /></div>
+      <div class="field"><label for="ge">Email</label><input id="ge" name="email" type="email" autocomplete="email" required /></div>
+    </div>
+    <div class="field"><label for="gt">I am interested as a</label>
+      <select id="gt" name="type" required><option value="">Select one</option><option>Prospective member</option><option>Researcher</option><option>Education provider</option><option>Prospective partner</option><option>Other</option></select>
+    </div>
+    <div class="field"><label for="gm">Message (optional)</label><textarea id="gm" name="message"></textarea></div>
+    <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <label class="check"><input type="checkbox" required /> <span>I agree to {site.shortName} storing these details to contact me about its development. <Placeholder>privacy policy to come</Placeholder></span></label>
+    <div class="form-status" tabindex="-1" role="status"><strong>Prototype only.</strong> This form is not connected and nothing was sent.</div>
+    <div><button class="btn btn-ghost" type="submit">Register interest</button></div>
+  </fieldset>
+</form>

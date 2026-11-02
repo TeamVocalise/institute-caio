@@ -1,0 +1,60 @@
+---
+// Future-state supporters page. SAMPLE DATA ONLY (src/content/supporters.json).
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import RuledRows from '../components/sections/RuledRows.astro';
+import { routes, site } from '../lib/site';
+const all = (await getCollection('supporters')).map((s) => s.data);
+const primary = all.filter((s) => s.tier === 'primary');
+const secondary = all.filter((s) => s.tier === 'secondary');
+const safeguards = [
+  { title: 'Independence', text: 'Supporters do not control professional standards, research findings or Founding Council appointments.' },
+  { title: 'Transparency', text: `All supporters are listed publicly on this page.` },
+  { title: 'Separation', text: 'Support is kept separate from the development of standards and frameworks.' },
+];
+---
+<BaseLayout title={`Institute supporters | ${site.shortName}`} description={`Organisations supporting the establishment of the ${site.name}.`}
+  sampleNotice="ICAIO does not yet have supporters. Every organisation name and logo on this page is a placeholder.">
+  <PageHero eyebrow="Supporters" title="Institute supporters."
+    lede={`Organisations supporting the establishment of ${site.shortName} and the profession of enterprise AI leadership in Australia.`} />
+
+  <section class="section" aria-labelledby="primary-h"><div class="container">
+    <div class="section-head"><p class="eyebrow">Primary supporters</p><h2 id="primary-h">Primary supporters.</h2></div>
+    <ul class="logo-grid logo-grid-primary">
+      {primary.map((s) => (
+        <li class="logo-card">
+          <a href={s.url ?? '#'} aria-disabled={s.url ? undefined : 'true'} rel="noopener">
+            <span class="logo-box">{s.logo ? <img src={s.logo} alt="" /> : <span class="logo-ph" aria-hidden="true">Logo</span>}</span>
+            <span class="logo-name">{s.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="secondary-h"><div class="container">
+    <div class="section-head"><p class="eyebrow">Secondary supporters</p><h2 id="secondary-h">Secondary supporters.</h2></div>
+    <ul class="logo-grid logo-grid-secondary">
+      {secondary.map((s) => (
+        <li class="logo-card">
+          <a href={s.url ?? '#'} aria-disabled={s.url ? undefined : 'true'} rel="noopener">
+            <span class="logo-box">{s.logo ? <img src={s.logo} alt="" /> : <span class="logo-ph" aria-hidden="true">Logo</span>}</span>
+            <span class="logo-name">{s.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div></section>
+
+  <section class="section" aria-labelledby="safeguards-h"><div class="container">
+    <div class="section-head"><p class="eyebrow">Independence</p><h2 id="safeguards-h">Support without influence.</h2></div>
+    <RuledRows items={safeguards} />
+  </div></section>
+
+  <section class="section on-dark closing" aria-labelledby="closing"><div class="container">
+    <h2 id="closing">Support the profession.</h2>
+    <p class="lede">Organisations interested in supporting {site.shortName}'s establishment are welcome to get in touch.</p>
+    <a class="btn btn-light" href={routes.register}>Register interest as a supporter</a>
+  </div></section>
+</BaseLayout>

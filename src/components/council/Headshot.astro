@@ -1,0 +1,11 @@
+---
+interface Props { src?: string; alt?: string }
+const { src, alt = '' } = Astro.props;
+---
+{src ? <img src={src} alt={alt} loading="lazy" decoding="async" /> : (
+  <svg viewBox="0 0 160 200" role="img" aria-label="Headshot placeholder" class="headshot-svg">
+    <rect width="160" height="200" fill="#DCE3DF" />
+    <circle cx="80" cy="78" r="34" fill="#B5C3BF" />
+    <path d="M18 200c4-46 30-70 62-70s58 24 62 70z" fill="#B5C3BF" />
+  </svg>
+)}

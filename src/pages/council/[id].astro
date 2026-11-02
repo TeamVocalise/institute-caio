@@ -1,0 +1,56 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Headshot from '../../components/council/Headshot.astro';
+import MiniCard from '../../components/council/MiniCard.astro';
+import Placeholder from '../../components/ui/Placeholder.astro';
+import { getMembersBySurname } from '../../lib/members';
+import { site } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const members = await getMembersBySurname();
+  return members.map((member) => ({ params: { id: member.id }, props: { member, members } }));
+}
+
+const { member, members } = Astro.props;
+const m = member.data;
+const others = members.filter((o) => o.id !== member.id);
+const { Content } = await render(member);
+const name = `${m.firstName} ${m.surname}`;
+---
+<BaseLayout title={`${name} | Founding Council | ${site.shortName}`} description={`${name}, ${m.councilTitle}, ${site.shortName} Founding Council.`} current="/founding-council/"
+  sampleNotice={m.sample ? 'The Founding Council has not been appointed. This profile is fictional placeholder content.' : undefined}>
+  <section class="profile-page"><div class="container">
+    <p class="back"><a href="/council-members/">&larr; All Council members</a></p>
+    <div class="profile-layout">
+      <div class="headshot"><Headshot src={m.headshot} alt={name} /></div>
+      <div class="profile-main">
+        <p class="eyebrow">{m.councilTitle}</p>
+        <h1>{name}</h1>
+        <p class="profile-role">{m.jobTitle}, {m.organisation}</p>
+        <ul class="member-tags" aria-label="Expertise">{m.tags.map((t) => <li>{t}</li>)}</ul>
+        <p class="profile-statement">{m.statement}</p>
+        <h2>AI for good</h2>
+        <p>{m.aiForGood ?? <Placeholder>{name}'s personal statement on AI for good, written and approved by the member</Placeholder>}</p>
+        <h2>Background</h2>
+        <div class:list={[{ 'placeholder-block': m.sample }]}><Content /></div>
+        <h2>Contribution to the Founding Council</h2>
+        <p>{m.contribution ?? <Placeholder>Domains and working groups the member contributes to</Placeholder>}</p>
+        <p class="actions">
+          <a class="btn btn-primary btn-sm" href={m.linkedin ?? '#'} aria-disabled={m.linkedin ? undefined : 'true'}>LinkedIn profile</a>
+          <a class="btn btn-ghost btn-sm" href={m.corporateProfile ?? '#'} aria-disabled={m.corporateProfile ? undefined : 'true'}>Corporate executive profile</a>
+        </p>
+      </div>
+    </div>
+  </div></section>
+  <section class="section surface others"><div class="container">
+    <div class="others-head">
+      <h2 id="others-h">Other Council members</h2>
+      <div class="scroll-btns">
+        <button type="button" class="scroll-btn" data-scroll="-1" aria-label="Scroll to previous members">&larr;</button>
+        <button type="button" class="scroll-btn" data-scroll="1" aria-label="Scroll to more members">&rarr;</button>
+      </div>
+    </div>
+    <ul class="scroller" role="list" tabindex="0" aria-labelledby="others-h">{others.map((o) => <MiniCard member={o} />)}</ul>
+  </div></section>
+</BaseLayout>

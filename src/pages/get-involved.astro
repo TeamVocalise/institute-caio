@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import { routes, site } from '../lib/site';
+---
+<BaseLayout title={`Get involved | ${site.shortName}`} description={`Express interest in the ${site.shortName} Founding Council or register interest in ${site.shortName}.`}>
+  <PageHero eyebrow="Get involved" title="Join the founding conversation." lede="Choose the option that fits you." />
+  <section class="section"><div class="container">
+    <div class="choices">
+      <a class="choice" href={routes.eoi}><span class="eyebrow">For senior executives</span><h2>Founding Council expression of interest</h2><p>For executives accountable for enterprise AI who want to help define the profession.</p><span class="text-link">Express interest</span></a>
+      <a class="choice" href={routes.register}><span class="eyebrow">For everyone else</span><h2>Register interest in {site.shortName}</h2><p>For prospective members, researchers, education providers, partners and others.</p><span class="text-link">Register interest</span></a>
+    </div>
+  </div></section>
+</BaseLayout>

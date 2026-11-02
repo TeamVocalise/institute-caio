@@ -1,0 +1,67 @@
+---
+// Copy: docs/content/P003-enterprise-ai-leadership.md (Draft)
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import DomainModel from '../components/sections/DomainModel.astro';
+import Arrow from '../components/ui/Arrow.astro';
+import { routes, site } from '../lib/site';
+const domains = (await getCollection('domains')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title={`Enterprise AI Leadership | ${site.shortName}`}
+  description="The eight domains of enterprise AI leadership: Ethical AI, Governance, Strategy, Transformation, Value, Capability, Adoption and Operating AI.">
+  <PageHero eyebrow="Enterprise AI Leadership" title="One discipline. Eight connected domains."
+    lede="Enterprise AI leadership integrates these disciplines to convert rapidly evolving AI capability into sustainable organisational performance." />
+
+  <section class="section surface"><div class="container">
+    <DomainModel bandText="Eight domains, one discipline. Each will be refined with the Founding Council."
+      linkHref="#domains-detail" linkLabel="Read each domain" />
+  </div></section>
+
+  <section class="section" id="domains-detail" aria-labelledby="detail-h"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">The domains in detail</p>
+      <h2 id="detail-h">What enterprise AI leaders are accountable for.</h2>
+      <p class="lede">A working description of each domain, offered as a starting point for the Founding Council to refine.</p>
+    </div>
+    <div class="domain-details">
+      {domains.map((d) => (
+        <article class="domain-detail" id={`detail-${d.id}`}>
+          <div class="dd-head">
+            <span class="domain-num">{String(d.data.order).padStart(2, '0')}</span>
+            <h3>{d.data.name}</h3>
+            {d.data.audience && <p class="dd-audience">{d.data.audience}</p>}
+          </div>
+          <div class="dd-body">
+            <p class="dd-desc">{d.data.description}</p>
+            {d.data.accountabilities.length > 0 && (
+              <>
+                <p class="dd-label">Leaders are accountable for</p>
+                <ul>{d.data.accountabilities.map((a) => <li>{a}</li>)}</ul>
+              </>
+            )}
+            {d.data.keyQuestion && <p class="dd-question"><span>The question to answer</span>{d.data.keyQuestion}</p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="ethics-first"><div class="container split">
+    <div><p class="eyebrow">Why Ethical AI comes first</p><h2 id="ethics-first">A position before a plan.</h2></div>
+    <div class="body">
+      <p>Ethical AI addresses the philosophical role of artificial intelligence as it relates to humanity and society, from today's systems through artificial general intelligence (AGI), artificial superintelligence (ASI) and quantum intelligence (QI).</p>
+      <p>It asks each organisation to determine and define its position on AI before planning how to use it. That position then guides every other domain.</p>
+    </div>
+  </div></section>
+
+  <section class="section on-dark closing" aria-labelledby="closing"><div class="container">
+    <h2 id="closing">Help define the discipline.</h2>
+    <p class="lede">The Founding Council will refine how each domain is described, how they connect, and what competence looks like in each.</p>
+    <a class="btn btn-light" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+    <div class="secondary">
+      <p>For prospective members, researchers, education providers, partners and others interested in {site.shortName}'s development.</p>
+      <a class="btn btn-ghost" href={routes.register}>Register interest in {site.shortName}</a>
+    </div>
+  </div></section>
+</BaseLayout>

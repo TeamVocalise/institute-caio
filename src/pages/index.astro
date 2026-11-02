@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import DomainModel from '../components/sections/DomainModel.astro';
+import RuledRows from '../components/sections/RuledRows.astro';
+import Principles from '../components/sections/Principles.astro';
+import Arrow from '../components/ui/Arrow.astro';
+import { site, routes } from '../lib/site';
+import { mandates, initialAgenda, councilMayDefine } from '../data/institution';
+---
+<BaseLayout title={`${site.shortName} | Enterprise AI Leadership in Australia`} current="/">
+  <Hero />
+
+  <section class="section" aria-labelledby="why-now">
+    <div class="container split">
+      <div><p class="eyebrow">Why now</p><h2 id="why-now">Australia cannot afford to follow.</h2></div>
+      <div class="body">
+        <p>In the internet era, Australian organisations could watch, learn and adopt what worked elsewhere. In an era of abundant intelligence, no country has that luxury. Gartner predicts that by 2029, a quarter of Global 500 companies will continuously release AI-powered offerings, making fast-follower strategies obsolete.<sup><a href="#src-1">1</a></sup></p>
+        <p>Much of the focus on AI is still on machine learning and data, but the role is changing. Gartner predicts that by 2027, 75% of chief data and analytics officers not seen as essential to their organisation's AI success will lose their C-level position,<sup><a href="#src-2">2</a></sup> and that by 2030, 80% of Global 500 companies will contractually make their CIO or Chief AI Officer the "Evidence Custodian" for AI accountability.<sup><a href="#src-1">1</a></sup> The remit, responsibility and accountability of AI leaders is broadening to whole-of-business transformation.</p>
+        <p>{site.shortName} is being established to help develop the shared standards, competencies and practices that this broader accountability requires.</p>
+        <ol class="sources" aria-label="Sources">
+          <li id="src-1">Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2026-09-15-gartner-unveils-top-strategic-predictions-for-2027-and-beyond" rel="noopener">Top Strategic Predictions for 2027 and Beyond</a>, 15 September 2026.</li>
+          <li id="src-2">Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2025-05-12-gartner-survey-finds-seventy-percent-of-cdaos-are-responsible-for-artificial-intelligence-strategy-and-operating-model" rel="noopener">CDAO Agenda Survey for 2025</a>, 12 May 2025.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface" id="enterprise-ai-leadership" aria-labelledby="eal">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Enterprise AI Leadership</p>
+        <h2 id="eal">One discipline. Eight connected domains.</h2>
+      </div>
+      <DomainModel
+        bandText="Enterprise AI leadership integrates these disciplines to convert rapidly evolving AI capability into sustainable organisational performance."
+        linkHref="/enterprise-ai-leadership/" linkLabel="Explore the eight domains" />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-icaio">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why {site.shortName}</p>
+        <h2 id="why-icaio">A professional institution for enterprise AI leadership.</h2>
+        <p class="lede">{site.shortName}'s purpose is to professionalise the leadership of artificial intelligence in Australian organisations. Its proposed work has four priorities.</p>
+      </div>
+      <RuledRows items={mandates} />
+      <p style="margin-top:32px"><a class="text-link" href="/about/">About {site.shortName}</a></p>
+    </div>
+  </section>
+
+  <section class="section on-dark" aria-labelledby="council">
+    <div class="container council">
+      <div class="body">
+        <p class="eyebrow">Founding Council</p>
+        <h2 id="council" style="margin-bottom:28px">Help define an emerging profession.</h2>
+        <p class="strong">{site.shortName} is bringing together a Founding Council of senior practitioners to help shape enterprise AI leadership in Australia.</p>
+        <p>The proposed Council will help define the profession's accountabilities, competencies, Body of Knowledge and research priorities. Its work will inform the institution as it develops.</p>
+        <p>We welcome expressions of interest from executives with enterprise AI accountability across Australian business, government and higher education. Membership is by invitation, for a 12-month founding term.</p>
+        <div class="notice">The Founding Council is distinct from the legal Board. An expression of interest does not guarantee an invitation, Council membership or a director appointment.</div>
+        <div class="actions">
+          <a class="btn btn-light" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+          <a class="btn btn-ghost" href="/founding-council/">Explore the proposed Council role</a>
+        </div>
+      </div>
+      <aside class="council-aside" aria-label="What the Council may help define">
+        <h3>The Council may help define</h3>
+        <ul>{councilMayDefine.map((i) => <li>{i}</li>)}</ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="agenda">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Initial professional agenda</p>
+        <h2 id="agenda">Start with the foundations of professional practice.</h2>
+        <p class="lede">The proposed initial agenda focuses on five outputs. Their scope and priorities will be shaped with founding participants.</p>
+      </div>
+      <RuledRows items={initialAgenda} />
+      <p style="margin-top:32px"><a class="text-link" href="/agenda/">Explore the proposed agenda</a></p>
+    </div>
+  </section>
+
+  <section class="section surface" aria-labelledby="independence">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Independence</p>
+        <h2 id="independence">Professional credibility starts with independence.</h2>
+        <p class="lede">{site.shortName} is being developed around six founding principles. The intended model keeps professional standards and research independent of vendor and sponsor control.</p>
+      </div>
+      <Principles />
+    </div>
+  </section>
+
+  <section class="section on-dark closing" aria-labelledby="closing">
+    <div class="container">
+      <h2 id="closing">Help define the profession.</h2>
+      <p class="lede">Bring your experience of enterprise AI accountability to the founding conversation.</p>
+      <a class="btn btn-light" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+      <div class="secondary">
+        <p>For prospective members, researchers, education providers, partners and others interested in {site.shortName}'s development.</p>
+        <a class="btn btn-ghost" href={routes.register}>Register interest in {site.shortName}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

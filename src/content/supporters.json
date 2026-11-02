@@ -1,0 +1,42 @@
+[
+  {
+    "id": "primary-1",
+    "tier": "primary",
+    "name": "Primary Supporter One"
+  },
+  {
+    "id": "primary-2",
+    "tier": "primary",
+    "name": "Primary Supporter Two"
+  },
+  {
+    "id": "secondary-1",
+    "tier": "secondary",
+    "name": "Secondary Supporter One"
+  },
+  {
+    "id": "secondary-2",
+    "tier": "secondary",
+    "name": "Secondary Supporter Two"
+  },
+  {
+    "id": "secondary-3",
+    "tier": "secondary",
+    "name": "Secondary Supporter Three"
+  },
+  {
+    "id": "secondary-4",
+    "tier": "secondary",
+    "name": "Secondary Supporter Four"
+  },
+  {
+    "id": "secondary-5",
+    "tier": "secondary",
+    "name": "Secondary Supporter Five"
+  },
+  {
+    "id": "secondary-6",
+    "tier": "secondary",
+    "name": "Secondary Supporter Six"
+  }
+]

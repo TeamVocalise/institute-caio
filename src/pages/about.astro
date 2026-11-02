@@ -1,0 +1,114 @@
+---
+// Copy: docs/content/P002-about.md (Draft). Founder section approved: docs/content/P002-about-founder.md
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import RuledRows from '../components/sections/RuledRows.astro';
+import Stages from '../components/sections/Stages.astro';
+import Principles from '../components/sections/Principles.astro';
+import Arrow from '../components/ui/Arrow.astro';
+import { site, routes } from '../lib/site';
+import { mandates } from '../data/institution';
+
+const education = [
+  { title: 'Standards', text: `${site.shortName} defines the competencies, Body of Knowledge, learning outcomes and professional standards for enterprise AI leadership.` },
+  { title: 'Education', text: 'Universities and other education providers may design programs aligned to those requirements.' },
+  { title: 'Recognition', text: `${site.shortName} may recognise appropriate external programs under provider-neutral rules.` },
+  { title: 'Designation', text: 'Any future professional designation would assess experience, competence and continuing professional development, not course completion alone.' },
+];
+
+const governance = [
+  { title: 'Independent Chair', text: 'An independent Chair, separate from the Founder and executive leadership.' },
+  { title: 'Board', text: 'A Board of approximately five to seven directors with formal governance duties.' },
+  { title: 'Founding Council', text: 'A Founding Council of senior practitioners, distinct from the legal Board.' },
+  { title: 'Independence from sponsors', text: 'Sponsors and vendors do not control professional standards or research.' },
+  { title: 'Related parties', text: 'Any transaction with a Founder-related entity is disclosed, independently approved on arm\'s-length terms, with the Founder excluded from the decision.' },
+  { title: 'Ownership', text: `Professional standards and frameworks belong to ${site.shortName}.` },
+];
+---
+<BaseLayout title={`About ${site.shortName} | ${site.name}`} description={`${site.shortName} is being established as an independent, not-for-profit professional institution for executives accountable for enterprise AI in Australia.`}>
+  <PageHero eyebrow={`About ${site.shortName}`} title="Professionalising the leadership of AI in Australian organisations."
+    lede={`${site.shortName} exists to develop the professional standards, capabilities, community, knowledge and practices required by executives responsible for AI strategy, transformation, governance, capability, adoption and value creation.`} />
+
+  <section class="section" aria-labelledby="positioning"><div class="container split">
+    <div><p class="eyebrow">Who {site.shortName} is for</p><h2 id="positioning">The professional body for Australia's enterprise AI leaders.</h2></div>
+    <div class="prose">
+      <p>{site.shortName} represents an executive accountability, not only a job title. It is being established for leaders who carry enterprise-wide responsibility for AI, including:</p>
+      <ul>
+        <li>Chief AI Officers</li>
+        <li>Chief Data &amp; AI Officers</li>
+        <li>Heads of Enterprise AI</li>
+        <li>CIOs, CTOs or CDOs with enterprise AI accountability</li>
+        <li>Chief Transformation Officers or equivalent executives with enterprise-wide AI responsibility</li>
+      </ul>
+      <p>{site.shortName} is not a vendor association, a consultancy or a technology community. It is being established as an independent, not-for-profit professional institution that reinvests any surplus in its purpose.</p>
+    </div>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="priorities"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">What {site.shortName} will do</p>
+      <h2 id="priorities">Four priorities for the profession.</h2>
+      <p class="lede">The work is organised around the eight domains of <a class="text-link" href="/enterprise-ai-leadership/">Enterprise AI Leadership</a>.</p>
+    </div>
+    <RuledRows items={mandates} />
+  </div></section>
+
+  <section class="section" aria-labelledby="education"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Standards and education</p>
+      <h2 id="education">Setting the standard, working with educators.</h2>
+      <p class="lede">{site.shortName} will keep setting professional standards separate from delivering education.</p>
+    </div>
+    <RuledRows items={education} />
+    <div class="callout" style="margin-top:40px"><p>Certification will not be rushed. The professional standard, practitioner community, Body of Knowledge and evidence base come first.</p></div>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="founder"><div class="container split">
+    <div><p class="eyebrow">Who is establishing {site.shortName}</p><h2 id="founder">Transparent from the start.</h2></div>
+    <div class="prose">
+      <p>{site.shortName} is being established by Nicholas Dalla Riva, who will serve as Founder and inaugural Chief Executive Officer.</p>
+      <blockquote class="founder-quote">
+        <p>For more than 25 years, my work has been about re-imagining business with emerging technology: using it to transform how organisations operate, to create new products and to build new business models that change markets.</p>
+        <p>AI is the most significant of these shifts so far. It changes strategy, operating models, risk and the workforce at once, and executives are being made accountable for it before the profession has agreed what good looks like.</p>
+        <p>I am establishing {site.shortName} so that the people carrying that accountability can define the standards, knowledge and community the role needs, and so that Australian organisations turn AI into market impact and lasting commercial returns.</p>
+        <footer>Nicholas Dalla Riva, Founder and Chief Executive Officer</footer>
+      </blockquote>
+      <h2>About Nicholas</h2>
+      <p>Nicholas Dalla Riva has spent more than 25 years leading digital and technology-led business transformation, new products and new business models, across financial services, technology and growth markets.</p>
+      <p>At NAB he led digital strategy and marketing, then direct sales and service strategy, before proposing and founding the digital capability for UBank, NAB's branchless bank. He secured $20 million in initial funding and developed a three-minute online loan application that simplified identity verification in Australian banking, laying the foundations for a digital bank that has since grown to more than one million customers. He later turned around the venture-backed comparison platform HelpMeChoose.com.au, taking it from a $2.4 million annual loss to break-even in nine months, and in 2009 founded Vocalise, one of Australia's first integrated growth marketing agencies.</p>
+      <p>In 2026 he completed Cornell University's Chief Artificial Intelligence Officer Program, alongside executive education in AI governance, risk and transformation from Cornell and the University of Oxford's Saïd Business School. He holds a BA in Philosophy and Politics from the University of Melbourne and a Postgraduate Diploma in eCommerce from Monash University.</p>
+      <p>The Chief Executive Officer's remuneration and performance will be set by the independent Board.</p>
+    </div>
+  </div></section>
+
+  <section class="section" aria-labelledby="governance"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Governance</p>
+      <h2 id="governance">Independent governance from the outset.</h2>
+      <p class="lede">{site.shortName}'s intended governance model separates the institution's leadership, its Board and its practitioners.</p>
+    </div>
+    <RuledRows items={governance} />
+    <p class="muted" style="margin-top:28px">The independent Chair and Board will be announced as they are appointed.</p>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="stages"><div class="container">
+    <div class="section-head"><p class="eyebrow">How {site.shortName} is being established</p><h2 id="stages">Built in stages, with credibility first.</h2>
+      <p class="lede">The establishment sequence puts practitioners, frameworks and evidence in place before a public launch. {site.shortName} is currently at Stage 1.</p></div>
+    <Stages current={0} />
+  </div></section>
+
+  <section class="section" aria-labelledby="principles"><div class="container">
+    <div class="section-head"><p class="eyebrow">Founding principles</p><h2 id="principles">Professional credibility starts with independence.</h2></div>
+    <Principles />
+  </div></section>
+
+  <section class="section on-dark closing" aria-labelledby="closing"><div class="container">
+    <h2 id="closing">Help define the profession.</h2>
+    <p class="lede">Bring your experience of enterprise AI accountability to the founding conversation.</p>
+    <a class="btn btn-light" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+    <div class="secondary">
+      <p>For prospective members, researchers, education providers, partners and others interested in {site.shortName}'s development.</p>
+      <a class="btn btn-ghost" href={routes.register}>Register interest in {site.shortName}</a>
+    </div>
+  </div></section>
+</BaseLayout>

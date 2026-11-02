@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { routes, site } from '../lib/site';
+---
+<BaseLayout title={`Page not found | ${site.shortName}`} description="The page you were looking for could not be found.">
+  <section class="page-hero notfound"><div class="container">
+    <p class="eyebrow">Error 404</p>
+    <h1>This page could not be found.</h1>
+    <p class="lede">It may have moved, or the address may be mistyped. These pages are a good place to start.</p>
+    <ul class="notfound-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About {site.shortName}</a></li>
+      <li><a href="/enterprise-ai-leadership/">Enterprise AI Leadership</a></li>
+      <li><a href="/founding-council/">Founding Council</a></li>
+      <li><a href="/agenda/">Proposed agenda</a></li>
+    </ul>
+    <div class="actions"><a class="btn btn-primary" href={routes.eoi}>Express interest in the Founding Council</a></div>
+  </div></section>
+</BaseLayout>

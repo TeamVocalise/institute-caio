@@ -1,0 +1,49 @@
+---
+// Copy: docs/content/P008-terms.md (Draft, requires legal review before launch)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
+import { site } from '../lib/site';
+---
+<BaseLayout title={`Terms of use and disclaimer | ${site.shortName}`} description={`Terms of use and disclaimer for the ${site.name} website.`}>
+  <PageHero eyebrow="Terms" title="Terms of use and disclaimer." lede="The terms that apply when you use this website." />
+  <section class="section"><div class="container legal">
+    <p class="legal-meta">Last updated: <Placeholder>date of publication</Placeholder></p>
+
+    <h2>1. About these terms</h2>
+    <p>This website is operated by <Placeholder>responsible entity name</Placeholder>, ABN <Placeholder>ABN</Placeholder>, on behalf of the {site.name} ("{site.shortName}") while it is being established. By using this website, you agree to these terms.</p>
+
+    <h2>2. An institution being established</h2>
+    <p>{site.shortName} is being established and has not yet been incorporated. Its structure, governance, membership, programs and outputs described on this website are proposed and may change. Nothing on this website is an offer of membership, appointment or services.</p>
+
+    <h2>3. Not professional advice</h2>
+    <p>The content on this website is general information about enterprise AI leadership and {site.shortName}'s proposed work. It is not legal, financial, technical or other professional advice, and does not take your circumstances into account. You should obtain appropriate advice before acting on it.</p>
+
+    <h2>4. Accuracy</h2>
+    <p>We take care to keep this website accurate and current, and we cite sources for statistics and forecasts. We do not guarantee that the content is complete, accurate or up to date, and forecasts by third parties are their own.</p>
+
+    <h2>5. Illustrative content</h2>
+    <p>Some images on this website are illustrative and do not show {site.shortName} members, Council members or supporters.</p>
+
+    <h2>6. Intellectual property</h2>
+    <p>The content of this website, including the Enterprise AI Leadership model, text, frameworks and design, belongs to {site.shortName} or is used with permission. You may view, download and share it for personal, non-commercial purposes with attribution to {site.shortName}. Any other use requires our written permission.</p>
+
+    <h2>7. Information you submit</h2>
+    <p>When you submit a form, you confirm that the information is accurate and that you are entitled to provide it. Submitting an expression of interest does not create any obligation for {site.shortName} to invite or appoint you. We handle your personal information in line with our <a href="/privacy/">privacy policy</a>.</p>
+
+    <h2>8. Acceptable use</h2>
+    <p>You must not use this website unlawfully, interfere with its operation or security, or submit false, misleading or automated information.</p>
+
+    <h2>9. Links to other websites</h2>
+    <p>This website may link to other websites. We do not control them and are not responsible for their content or privacy practices. A link does not mean we endorse the website or organisation.</p>
+
+    <h2>10. Liability</h2>
+    <p>To the extent permitted by law, we exclude all liability for any loss or damage arising from your use of, or reliance on, this website. Nothing in these terms excludes rights you have under the Australian Consumer Law that cannot be excluded.</p>
+
+    <h2>11. Governing law</h2>
+    <p>These terms are governed by the laws of <Placeholder>Victoria</Placeholder>, Australia.</p>
+
+    <h2>12. Changes and contact</h2>
+    <p>We may update these terms as {site.shortName} is established. The current version will always be on this page. For questions, contact <Placeholder>hello@caio.org.au</Placeholder>.</p>
+  </div></section>
+</BaseLayout>

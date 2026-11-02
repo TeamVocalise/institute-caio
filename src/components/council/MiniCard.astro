@@ -1,0 +1,15 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Headshot from './Headshot.astro';
+interface Props { member: CollectionEntry<'members'> }
+const { member } = Astro.props;
+const m = member.data;
+---
+<li class="mini">
+  <a href={`/council/${member.id}/`}>
+    <span class="headshot"><Headshot src={m.headshot} /></span>
+    <span class="mini-name">{m.firstName} {m.surname}</span>
+    <span class="member-council">{m.councilTitle}</span>
+    <span class="mini-role">{m.jobTitle}<br />{m.organisation}</span>
+  </a>
+</li>

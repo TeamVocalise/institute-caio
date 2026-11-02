@@ -1,0 +1,103 @@
+---
+// Copy: docs/content/P004-founding-council.md (Draft for review, 12 October 2026)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RuledRows from '../components/sections/RuledRows.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
+import Arrow from '../components/ui/Arrow.astro';
+import { routes, site } from '../lib/site';
+
+const councilWork = [
+  'Enterprise AI Leadership and its eight domains',
+  'The CAIO role and accountability framework',
+  'A professional competency framework and Body of Knowledge',
+  'Education and professional development requirements',
+  'The research agenda and an enterprise AI maturity model',
+  'Governance, accountability, value and performance frameworks',
+];
+
+const programme = [
+  { title: 'Define', text: 'Founding Council, Professional Charter and the Enterprise AI Leadership definition.' },
+  { title: 'Standardise', text: 'Competency Framework 1.0 and the AI Leadership & Accountability Framework.' },
+  { title: 'Benchmark', text: 'An Australian enterprise AI leadership study and executive benchmarking.' },
+  { title: 'Publish', text: 'State of Enterprise AI Leadership in Australia, and an inaugural executive forum.' },
+];
+
+const involved = [
+  { title: 'Term', text: 'A 12-month founding term.' },
+  { title: 'Time', text: 'A 90-minute Council session each month, mostly online, with one in-person forum during the year.' },
+  { title: 'Honorary role', text: `Council roles are honorary. No fees or expenses are paid, and members cover their own costs until ${site.shortName} generates revenue.` },
+  { title: 'Recognition', text: `Founding Council members receive complimentary ${site.shortName} membership. Once ${site.shortName} publicly lists the Council, members may add the role to their public career profiles.` },
+  { title: 'Personal capacity', text: 'Members take part in a personal capacity and do not represent their employers unless explicitly approved.' },
+  { title: 'Not a Board seat', text: 'The Founding Council is distinct from the legal Board. Council membership does not make a person a director.' },
+];
+
+const steps = [
+  { title: 'Expression of interest', text: `Executives express interest, or are invited directly by ${site.shortName}.` },
+  { title: 'Alignment discussion', text: "Selected candidates are invited to a conversation about the Council's purpose, principles and the contribution they could make." },
+  { title: 'Approval', text: "Initial appointments are made with ICAIO's independent Chair. Once the Council is established, new appointments are approved by existing Founding Council members." },
+];
+---
+<BaseLayout title={`Founding Council | ${site.name} (${site.shortName})`}
+  description={`${site.shortName} is forming a Founding Council of senior enterprise AI executives to help define the profession in Australia. Membership is by invitation.`}>
+
+  <section class="page-hero"><div class="container">
+    <p class="eyebrow">Founding Council</p>
+    <h1>Help define the profession of enterprise AI leadership.</h1>
+    <p class="lede">{site.shortName} is forming a Founding Council of senior practitioners to shape the standards, competencies and knowledge that executives accountable for enterprise AI will work by.</p>
+    <div class="actions" style="margin-top:32px">
+      <a class="btn btn-primary" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+    </div>
+  </div></section>
+
+  <section class="section" aria-labelledby="why"><div class="container split">
+    <div><p class="eyebrow">Why a Founding Council</p><h2 id="why">A profession defined by the people who practise it.</h2></div>
+    <div class="body">
+      <p>Accountability for enterprise AI is arriving faster than agreed professional standards, competencies and operating practices.</p>
+      <p>{site.shortName} is not asking executives to endorse an institution that is already fully designed. The Founding Council will help design it, so that the profession reflects the realities of leading AI in Australian organisations.</p>
+    </div>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="work"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">The founding year</p>
+      <h2 id="work">What the Council will work on.</h2>
+      <p class="lede">Over a 12-month founding term, the Council is expected to help define:</p>
+    </div>
+    <ul class="work-list">{councilWork.map((w) => <li>{w}</li>)}</ul>
+    <h3 class="sub-head">The proposed founding programme runs in four stages.</h3>
+    <div class="stages stages-4">
+      {programme.map((p, n) => <div class="stage"><span class="n">Stage {n + 1}</span><h3>{p.title}</h3><p>{p.text}</p></div>)}
+    </div>
+  </div></section>
+
+  <section class="section" aria-labelledby="who"><div class="container split">
+    <div><p class="eyebrow">Who we are looking for</p><h2 id="who">Senior executives with enterprise-wide AI accountability.</h2></div>
+    <div class="body">
+      <p>The Council will bring together approximately 12 to 20 senior practitioners. Members may hold the title Chief AI Officer, or carry equivalent accountability as a Chief Data &amp; AI Officer, Head of Enterprise AI, CIO, CTO, CDO or Chief Transformation Officer.</p>
+      <p>Membership will be drawn deliberately across sectors, including financial services, government, healthcare, telecommunications, retail, resources, professional services, technology and higher education.</p>
+    </div>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="involved"><div class="container">
+    <div class="section-head"><p class="eyebrow">What is involved</p><h2 id="involved">A clear, proportionate commitment.</h2></div>
+    <RuledRows items={involved} />
+  </div></section>
+
+  <section class="section" aria-labelledby="process"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How appointment works</p>
+      <h2 id="process">By invitation, after an alignment discussion.</h2>
+    </div>
+    <RuledRows items={steps} />
+    <div class="callout" style="margin-top:40px"><p>Membership of the Founding Council is by invitation. An expression of interest does not guarantee an invitation, Council membership or a director appointment.</p></div>
+  </div></section>
+
+  <section class="section on-dark closing" aria-labelledby="closing"><div class="container">
+    <h2 id="closing">Help shape the profession from the start.</h2>
+    <p class="lede">Bring your experience of enterprise AI accountability to the founding conversation.</p>
+    <a class="btn btn-light" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+    <div class="secondary">
+      <p>Founding Council prospectus <Placeholder>PDF in preparation</Placeholder></p>
+    </div>
+  </div></section>
+</BaseLayout>

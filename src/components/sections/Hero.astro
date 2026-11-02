@@ -1,0 +1,35 @@
+---
+import Arrow from '../ui/Arrow.astro';
+import { routes, site } from '../../lib/site';
+import { heroCities } from '../../data/institution';
+---
+<section class="hero" data-hero aria-labelledby="hero-title">
+  <div class="hero-slides" aria-hidden="true">
+    {heroCities.map((c, n) => (
+      <div class:list={['hero-slide', { 'is-active': n === 0 }]} data-city={c.name}>
+        <img src={`/images/hero/hero-${c.slug}.jpg`} alt="" width="1376" height="768"
+          loading={n === 0 ? 'eager' : 'lazy'} decoding="async" fetchpriority={n === 0 ? 'high' : undefined} />
+      </div>
+    ))}
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <p class="eyebrow">{site.name}</p>
+      <h1 id="hero-title"><span>AI is becoming an enterprise capability.</span> <span class="second">AI leadership must become a professional discipline.</span></h1>
+      <p class="lede">{site.shortName} is being established as an independent, not-for-profit professional institution for executives accountable for enterprise AI in Australian organisations.</p>
+      <p class="for">For Chief AI Officers and equivalent leaders with enterprise-wide AI responsibility, whatever their title.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+        <a class="btn btn-ghost" href="#enterprise-ai-leadership">Explore Enterprise AI Leadership</a>
+      </div>
+    </div>
+  </div>
+  <p class="hero-caption">Illustrative image. Not {site.shortName} members.</p>
+  <div class="hero-meta">
+    <span class="hero-city">{heroCities[0].name}</span>
+    <div class="hero-dots" role="group" aria-label="Choose city view">
+      {heroCities.map((c, n) => <button type="button" aria-label={`Show ${c.name}`} aria-current={n === 0 ? 'true' : 'false'}></button>)}
+    </div>
+    <button type="button" class="hero-pause" aria-pressed="false">Pause</button>
+  </div>
+</section>

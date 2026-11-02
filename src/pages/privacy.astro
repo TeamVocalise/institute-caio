@@ -1,0 +1,75 @@
+---
+// Copy: docs/content/P007-privacy.md (Draft, requires legal review before launch)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
+import { site } from '../lib/site';
+---
+<BaseLayout title={`Privacy policy | ${site.shortName}`} description={`How the ${site.name} collects, uses and protects personal information.`}>
+  <PageHero eyebrow="Privacy" title="Privacy policy." lede={`How ${site.shortName} collects, uses, stores and protects your personal information.`} />
+  <section class="section"><div class="container legal">
+    <p class="legal-meta">Last updated: <Placeholder>date of publication</Placeholder></p>
+
+    <h2>1. About this policy</h2>
+    <p>This policy explains how the {site.name} ("{site.shortName}", "we", "us") handles personal information. We are committed to handling personal information in line with the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles.</p>
+
+    <h2>2. Who we are</h2>
+    <p>{site.shortName} is being established as an independent, not-for-profit professional institution for executives accountable for enterprise AI in Australia. Until {site.shortName} is incorporated, this website and any personal information collected through it are managed by <Placeholder>responsible entity name</Placeholder>, ABN <Placeholder>ABN</Placeholder>. Personal information will be transferred to {site.shortName} once it is incorporated.</p>
+
+    <h2>3. The information we collect</h2>
+    <p>We collect only what we need for the purposes described in this policy.</p>
+    <ul>
+      <li><strong>Founding Council expression of interest:</strong> your name, work email, role title, organisation, sector, the scope of your enterprise AI accountability, the domains where you could contribute, and your LinkedIn profile if you provide it.</li>
+      <li><strong>Register interest:</strong> your name, email, the capacity in which you are interested, and any message you send.</li>
+      <li><strong>Correspondence:</strong> information you give us when you email or speak with us.</li>
+      <li><strong>Technical information:</strong> limited information needed to operate and protect the website, such as information used to prevent spam form submissions.</li>
+    </ul>
+    <p>We do not ask for sensitive information, such as health information, and ask that you do not include it in any message.</p>
+
+    <h2>4. How we collect it</h2>
+    <p>We collect personal information directly from you when you complete a form, email us or speak with us. Because Founding Council membership is by invitation, we may also collect professional information about senior executives from publicly available sources, such as company websites and professional profiles, or from people who recommend them. If we do this, we will tell you when we first contact you.</p>
+
+    <h2>5. How we use it</h2>
+    <ul>
+      <li>To consider expressions of interest in the Founding Council, including alignment discussions and appointment decisions.</li>
+      <li>To keep you informed about {site.shortName}'s development, if you have asked us to.</li>
+      <li>To respond to your enquiries.</li>
+      <li>To plan {site.shortName}'s membership, research and events.</li>
+      <li>To operate, secure and improve this website.</li>
+    </ul>
+    <p>We will not sell your personal information or use it for any purpose you would not reasonably expect.</p>
+
+    <h2>6. Who we share it with</h2>
+    <p>We share personal information only where needed for the purposes above, including with:</p>
+    <ul>
+      <li>{site.shortName}'s founder, independent Chair and, once appointed, Founding Council members involved in considering appointments;</li>
+      <li>service providers who host this website, process forms or send email for us, under appropriate confidentiality obligations;</li>
+      <li>anyone else with your consent, or where required or authorised by law.</li>
+    </ul>
+    <p>Founding Council members' names and profiles are published only with their consent.</p>
+
+    <h2>7. Overseas disclosure</h2>
+    <p>Some of our service providers may store or process information outside Australia. These are currently expected to include <Placeholder>hosting, form and email providers and the countries involved</Placeholder>. We take reasonable steps to ensure they handle personal information consistently with the Australian Privacy Principles.</p>
+
+    <h2>8. Storage and security</h2>
+    <p>We take reasonable steps to protect personal information from misuse, interference, loss, and unauthorised access, modification or disclosure. Access is limited to people who need it for the purposes above.</p>
+
+    <h2>9. How long we keep it</h2>
+    <p>We keep personal information only for as long as we need it for the purposes above, or as required by law. If you are not invited to the Founding Council, we keep your details so that we can consider you for future roles and keep you informed, unless you ask us to delete them.</p>
+
+    <h2>10. Access, correction and deletion</h2>
+    <p>You can ask to access, correct or delete the personal information we hold about you by contacting us. We will respond within a reasonable time, usually within 30 days.</p>
+
+    <h2>11. Updates from us</h2>
+    <p>We will send updates only if you have asked for them. Every email includes a way to unsubscribe, or you can contact us at any time.</p>
+
+    <h2>12. Cookies and analytics</h2>
+    <p>This website does not currently use advertising or analytics cookies. We may use a spam-protection service on our forms, which processes limited technical information to tell people apart from automated submissions. If we introduce analytics, we will update this policy first.</p>
+
+    <h2>13. Questions and complaints</h2>
+    <p>If you have a question or complaint about how we handle personal information, please contact us at <Placeholder>privacy@caio.org.au</Placeholder>. We will respond within 30 days. If you are not satisfied with our response, you can contact the Office of the Australian Information Commissioner at <a href="https://www.oaic.gov.au" rel="noopener">oaic.gov.au</a>.</p>
+
+    <h2>14. Changes to this policy</h2>
+    <p>We may update this policy as {site.shortName} is established. The current version will always be on this page.</p>
+  </div></section>
+</BaseLayout>

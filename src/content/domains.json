@@ -1,0 +1,99 @@
+[
+  {
+    "id": "ethical-ai",
+    "order": 1,
+    "name": "Ethical AI",
+    "audience": "For Boards",
+    "description": "The role of AI, AGI, ASI and QI in humanity and society, and how organisations determine and define their position.",
+    "accountabilities": [
+      "Set the organisation's position on AI's role in society, and keep it current as capability advances towards AGI and beyond.",
+      "Decide where AI should and should not be used, and the human oversight it requires.",
+      "Give the board a clear view of the ethical questions AI raises for the organisation."
+    ],
+    "keyQuestion": "What is our position on AI, and would we be comfortable defending it publicly?"
+  },
+  {
+    "id": "governance",
+    "order": 2,
+    "name": "Governance",
+    "description": "Responsible AI, risk, assurance, accountability, regulation and board oversight.",
+    "accountabilities": [
+      "Establish AI risk, assurance and accountability frameworks.",
+      "Align AI use with regulation and emerging standards.",
+      "Give the board clear oversight of AI use, performance and incidents."
+    ],
+    "keyQuestion": "Who is accountable when an AI system gets it wrong?"
+  },
+  {
+    "id": "strategy",
+    "order": 3,
+    "name": "Strategy",
+    "description": "Enterprise AI strategy, portfolio choices, investment and alignment.",
+    "accountabilities": [
+      "Set the enterprise AI strategy and investment portfolio.",
+      "Align AI priorities with the organisation's strategy.",
+      "Decide where to build, buy or partner."
+    ],
+    "keyQuestion": "Where will AI create the most advantage for us over the next three years?"
+  },
+  {
+    "id": "transformation",
+    "order": 4,
+    "name": "Transformation",
+    "description": "Operating-model and process transformation enabled by AI.",
+    "accountabilities": [
+      "Redesign operating models and processes around AI.",
+      "Sequence change across functions and business units.",
+      "Manage the dependencies between technology, people and process."
+    ],
+    "keyQuestion": "Which parts of how we work should be redesigned, not just automated?"
+  },
+  {
+    "id": "value",
+    "order": 5,
+    "name": "Value",
+    "description": "Business cases, benefits, productivity, growth and value realisation.",
+    "accountabilities": [
+      "Build credible business cases for AI investment.",
+      "Track benefits, productivity and growth against those cases.",
+      "Scale or stop initiatives on the evidence."
+    ],
+    "keyQuestion": "How do we know our AI investment is paying off?"
+  },
+  {
+    "id": "capability",
+    "order": 6,
+    "name": "Capability",
+    "description": "Data, platforms, models, agents, architecture, vendors and organisational capability.",
+    "accountabilities": [
+      "Ensure the data, platforms and architecture AI depends on.",
+      "Make sound model, agent and vendor choices.",
+      "Build the organisation's AI skills and teams."
+    ],
+    "keyQuestion": "Do we have the data, platforms and people to deliver our AI ambitions?"
+  },
+  {
+    "id": "adoption",
+    "order": 7,
+    "name": "Adoption",
+    "description": "Workforce, skills, change, behaviours and organisational adoption.",
+    "accountabilities": [
+      "Lead workforce skills and change.",
+      "Shape the behaviours and ways of working AI requires.",
+      "Measure uptake and sustained, safe use."
+    ],
+    "keyQuestion": "Are our people using AI well, and safely?"
+  },
+  {
+    "id": "operating-ai",
+    "order": 8,
+    "name": "Operating AI",
+    "description": "The continual management, improvement and optimisation of the operation of AI models, agents and systems, workflows, and outputs.",
+    "accountabilities": [
+      "Monitor the performance of models, agents and workflows in operation.",
+      "Continually improve and optimise their outputs.",
+      "Manage cost, reliability and change over time."
+    ],
+    "keyQuestion": "Are our AI systems still performing as intended, and getting better?"
+  }
+]

@@ -1,0 +1,41 @@
+---
+import Placeholder from '../ui/Placeholder.astro';
+import Arrow from '../ui/Arrow.astro';
+import { getCollection } from 'astro:content';
+import { sectors } from '../../data/institution';
+import { site } from '../../lib/site';
+const domains = (await getCollection('domains')).sort((a, b) => a.data.order - b.data.order);
+---
+<!-- Prototype: validates but never sends. Connect to the approved backend before launch. -->
+<form class="form" id="council-form" data-prototype novalidate>
+  <fieldset>
+    <legend>Your details</legend>
+    <p class="muted">An expression of interest does not confer Council membership or a director appointment. We will be in touch about next steps. <Placeholder>response timing</Placeholder></p>
+    <div class="two">
+      <div class="field"><label for="n">Full name</label><input id="n" name="name" autocomplete="name" required /></div>
+      <div class="field"><label for="e">Work email</label><input id="e" name="email" type="email" autocomplete="email" required /></div>
+    </div>
+    <div class="two">
+      <div class="field"><label for="r">Role title</label><input id="r" name="role" autocomplete="organization-title" required /></div>
+      <div class="field"><label for="o">Organisation</label><input id="o" name="org" autocomplete="organization" required /></div>
+    </div>
+    <div class="field"><label for="s">Sector</label>
+      <select id="s" name="sector" required><option value="">Select a sector</option>{sectors.map((s) => <option>{s}</option>)}</select>
+    </div>
+    <div class="field"><label for="scope">Scope of your enterprise AI accountability</label>
+      <span class="hint" id="scope-hint">For example: enterprise-wide strategy, governance, a portfolio of programs, or team size.</span>
+      <textarea id="scope" name="scope" aria-describedby="scope-hint" required></textarea>
+    </div>
+    <div class="field"><span class="label" id="dom-l">Domains where you could contribute most</span>
+      <div class="checks" role="group" aria-labelledby="dom-l">
+        {domains.map((d) => <label class="check"><input type="checkbox" name="domains" value={d.data.name} /> {d.data.name}</label>)}
+      </div>
+    </div>
+    <div class="field"><label for="li">LinkedIn profile (optional)</label><input id="li" name="linkedin" type="url" placeholder="https://" /></div>
+    <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <label class="check"><input type="checkbox" required /> <span>I understand that I would take part in a personal capacity and not as a representative of my employer.</span></label>
+    <label class="check"><input type="checkbox" required /> <span>I agree to {site.shortName} storing these details to consider my expression of interest, as described in the privacy policy <Placeholder>to come</Placeholder>. My details will not be shared with third parties without my consent.</span></label>
+    <div class="form-status" tabindex="-1" role="status"><strong>Prototype only.</strong> This form is not connected and nothing was sent.</div>
+    <div><button class="btn btn-primary" type="submit">Submit expression of interest <Arrow /></button></div>
+  </fieldset>
+</form>

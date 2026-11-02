@@ -1,0 +1,12 @@
+---
+import { stages } from '../../data/institution';
+interface Props { current?: number }
+const { current = 0 } = Astro.props;
+---
+<div class="stages">
+  {stages.map((s, n) => (
+    <div class:list={['stage', { current: n === current }]}>
+      <span class="n">Stage {n + 1}</span><h3>{s.title}</h3><p>{s.text}</p>
+    </div>
+  ))}
+</div>

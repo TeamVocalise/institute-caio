@@ -1,0 +1,89 @@
+---
+// Copy: docs/content/P005-agenda.md (Draft)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import RuledRows from '../components/sections/RuledRows.astro';
+import Arrow from '../components/ui/Arrow.astro';
+import { routes, site } from '../lib/site';
+import { initialAgenda, agendaGroups } from '../data/institution';
+
+const programme = [
+  { title: 'Define', text: 'Founding Council, Professional Charter and the Enterprise AI Leadership definition.' },
+  { title: 'Standardise', text: 'Competency Framework 1.0 and the AI Leadership & Accountability Framework.' },
+  { title: 'Benchmark', text: 'An Australian enterprise AI leadership study and executive benchmarking.' },
+  { title: 'Publish', text: 'State of Enterprise AI Leadership in Australia, and an inaugural executive forum.' },
+];
+
+const research = [
+  { title: 'Practitioner-led', text: 'Developed with the executives who carry enterprise AI accountability, starting with the Founding Council.' },
+  { title: 'Evidence-based', text: 'Grounded in enterprise practice and credible research, with methods and sources stated.' },
+  { title: 'Independent', text: 'Sponsors and vendors do not control professional standards or research findings.' },
+  { title: 'Owned by the profession', text: `Professional standards and frameworks belong to ${site.shortName}.` },
+];
+---
+<BaseLayout title={`Proposed agenda | ${site.shortName}`}
+  description={`The proposed professional agenda for enterprise AI leadership in Australia: a Professional Charter, competency and accountability frameworks, a maturity model and research.`}>
+  <PageHero eyebrow="Proposed agenda" title="Start with the foundations of professional practice."
+    lede="The proposed initial agenda focuses on five outputs. Their scope and priorities will be shaped with founding participants." />
+
+  <section class="section" aria-labelledby="initial"><div class="container">
+    <div class="section-head"><p class="eyebrow">Initial outputs</p><h2 id="initial">Five proposed starting points.</h2></div>
+    <RuledRows items={initialAgenda} />
+  </div></section>
+
+  <section class="section surface" aria-labelledby="programme"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">The founding year</p>
+      <h2 id="programme">Built in four stages with the Founding Council.</h2>
+      <p class="lede">The initial outputs are proposed to be developed over the Council's 12-month founding term.</p>
+    </div>
+    <div class="stages stages-4">
+      {programme.map((p, n) => <div class="stage"><span class="n">Stage {n + 1}</span><h3>{p.title}</h3><p>{p.text}</p></div>)}
+    </div>
+    <p style="margin-top:32px"><a class="text-link" href="/founding-council/">About the Founding Council</a></p>
+  </div></section>
+
+  <section class="section" aria-labelledby="wider"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">The wider programme</p>
+      <h2 id="wider">Potential first-wave professional knowledge.</h2>
+      <p class="lede">Beyond the initial five, {site.shortName} has identified a wider body of work for the profession. All items are proposed. None has been published.</p>
+    </div>
+    <div class="agenda-groups">
+      {agendaGroups.map((g) => (
+        <div class="agenda-group">
+          <div class="ag-head"><h3>{g.title}</h3><p>{g.text}</p></div>
+          <ul class="ag-items">
+            {g.items.map((i) => (
+              <li>
+                <span class="ag-title">{i.title}</span>
+                <span class="ag-tags">
+                  {i.initial && <span class="tag">Initial</span>}
+                  {i.domains.map((d) => <span class="tag tag-quiet">{d}</span>)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div></section>
+
+  <section class="section surface" aria-labelledby="research"><div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How the work will be done</p>
+      <h2 id="research">Credible, independent and practitioner-led.</h2>
+    </div>
+    <RuledRows items={research} />
+  </div></section>
+
+  <section class="section on-dark closing" aria-labelledby="closing"><div class="container">
+    <h2 id="closing">Help shape the agenda.</h2>
+    <p class="lede">Bring your experience of enterprise AI accountability to the founding conversation.</p>
+    <a class="btn btn-light" href={routes.eoi}>Express interest in the Founding Council <Arrow /></a>
+    <div class="secondary">
+      <p>For prospective members, researchers, education providers, partners and others interested in {site.shortName}'s development.</p>
+      <a class="btn btn-ghost" href={routes.register}>Register interest in {site.shortName}</a>
+    </div>
+  </div></section>
+</BaseLayout>

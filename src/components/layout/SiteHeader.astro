@@ -1,0 +1,34 @@
+---
+import { site, routes, mainNav } from '../../lib/site';
+interface Props { current: string }
+const { current } = Astro.props;
+const isCurrent = (href: string) => current === href || (href !== '/' && current.startsWith(href));
+---
+<a class="skip-link" href="#main">Skip to content</a>
+{site.formationMode && (
+  <div class="draft-bar" role="note"><strong>Draft for review.</strong> Not a launched website. Forms are not connected and no information is sent.</div>
+)}
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label={`${site.shortName} home`}>
+      <span class="brand-mark">{site.shortName}</span>
+      <span class="brand-name">{site.name}</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        {mainNav.map((l) => <li><a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a></li>)}
+      </ul>
+      <a class="btn btn-primary btn-sm" href={routes.eoi}>Express interest</a>
+      <details class="menu">
+        <summary>Menu</summary>
+        <div class="menu-panel">
+          <ul>
+            {mainNav.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+            <li><a href={routes.getInvolved}>Get involved</a></li>
+          </ul>
+          <a class="btn btn-primary" href={routes.eoi}>Express interest in the Founding Council</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
